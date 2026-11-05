@@ -1,0 +1,31 @@
+Problem:
+Predict whether a student will pass or fail an exam using their study and academic details. This task uses 500 synthetic student records.
+
+Features:
+Study Hours, Attendance, Assignment Score and Previous Score.
+
+Target:
+Pass.
+
+Classes:
+0 = Fail
+1 = Pass
+
+Why Classification?
+The expected output is one of two categories: Pass or Fail. We are not predicting an exact exam score, so this is a binary classification problem.
+
+Expected Prediction:
+For a new student, the expected prediction is Pass or Fail. Logistic Regression could estimate the probability of passing, which can then be converted into a class using a threshold such as 0.5. No model has been trained in this task yet.
+
+Observations:
+The dataset contains 359 passing students and 141 failing students. Median study hours were 5.5 for passing students and 2.3 for failing students. Median attendance was 78% for passing students and 70% for failing students. Both groups overlap, so neither feature alone perfectly separates the results.
+
+Bonus: Rule-Based Prediction
+
+I used a simple rule: predict Pass when study hours are at least 4 and attendance is at least 75%; otherwise predict Fail.
+
+The rule correctly classified 291 out of 500 students, giving 58.2% accuracy. Always predicting Pass would give 71.8%, so this rule performed worse than that baseline.
+
+The rule ignores assignment scores and previous scores. It also predicts Fail whenever either condition is not met, even though some of those students passed.
+
+Logistic Regression could learn from all four features and estimate the probability of passing instead of relying on these fixed conditions. However, we would need to train and evaluate it on unseen data before claiming it performs better.
